@@ -1,0 +1,21 @@
+//валюти
+#include <stdio.h>
+
+int main()
+{
+    double uah, eur, usd;
+    const double EUR_TO_UAH = 40.42; // курс євро до гривні
+    const double USD_TO_UAH = 37.44; // курс долара до гривні
+
+    printf("Введіть суму грошей в гривнях: ");
+    scanf("%lf", &uah);
+
+    eur = uah / EUR_TO_UAH; // переведення в євро
+    usd = uah / USD_TO_UAH; // переведення в долари
+
+    printf("%.2lf грн = %.2lf євро\n", uah, eur);
+    printf("%.2lf грн = %.2lf доларів\n", uah, usd);
+
+    return 0;
+}
+
