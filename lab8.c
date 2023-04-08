@@ -1,23 +1,30 @@
 //Визначає третє слово з речення.
+//Визначає третє слово з речення.
+
 #include <stdio.h>
 #include <string.h>
 
 int main() {
-    char str[1000];
+    char sentence[1000];
     printf("Введіть речення: ");
-    fgets(str, 1000, stdin);
+    fgets(sentence, 1000, stdin); // зчитуємо рядок з консолі
 
-    char *token = strtok(str, " ");
-    int count = 0;
+    char* words[1000];
+    char* word = strtok(sentence, " "); // розділяємо рядок на слова
+    int i = 0;
+    while (word != NULL) {
+        words[i] = word;
+        word = strtok(NULL, " ");
+        i++;
+    }
 
-    while (token != NULL) {
-        count++;
-        if (count == 3) {
-            printf("Третє слово: %s\n", token);
-            break;
-        }
-        token = strtok(NULL, " ");
+    if (i >= 3) { // перевіряємо, чи є в рядку щонайменше 3 слова
+        printf("Третє слово з речення: %s", words[2]); // виводимо третє слово
+    }
+    else {
+        printf("В реченні менше трьох слів.");
     }
 
     return 0;
 }
+
